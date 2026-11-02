@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Detail Menu | KANTINKU
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&amp;family=Playfair+Display:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+  <style>
+   :root {
+      --cream: #f7f4ec;
+      --paper: #fffdf8;
+      --ink: #20352b;
+      --muted: #788178;
+      --green: #315b45;
+      --sage: #dce7d9;
+      --orange: #ef8b52;
+      --line: #e8e4d9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .wrap { width: min(1000px, calc(100% - 36px)); margin: auto; }
+    nav {
+      min-height: 76px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .brand { font-weight: 800; letter-spacing: 1px; font-size: 19px; text-decoration: none; color: var(--ink); }
+    .mark {
+      display: inline-grid; place-items: center; background: var(--green);
+      color: white; width: 36px; height: 36px; border-radius: 12px; margin-right: 8px;
+    }
+    .back {
+      color: var(--green); text-decoration: none; font-weight: 800;
+      border: 1px solid var(--line); background: white; padding: 11px 16px; border-radius: 25px;
+    }
+    .detail {
+      display: grid; grid-template-columns: 1.05fr 1fr; gap: 38px;
+      align-items: center; padding: 35px 0 55px;
+    }
+    .photo {
+      width: 100%; height: 430px; object-fit: cover; border-radius: 24px;
+      background: var(--sage);
+    }
+    .tag {
+      display: inline-block; background: var(--sage); color: var(--green);
+      padding: 8px 13px; border-radius: 30px; font-size: 11px;
+      font-weight: 800; letter-spacing: 1px;
+    }
+    h1 { font: 800 clamp(34px, 5vw, 52px)/1.1 'Playfair Display', serif; margin: 18px 0 12px; }
+    .description { color: var(--muted); font-size: 15px; line-height: 1.8; }
+    .price { color: var(--green); font-size: 27px; font-weight: 800; margin: 20px 0; }
+    .info {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 22px 0;
+    }
+    .info-box { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 15px; }
+    .info-box span { display: block; color: var(--muted); font-size: 12px; margin-bottom: 5px; }
+    .info-box strong { font-size: 14px; }
+    .order { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 25px; }
+    .quantity {
+      display: flex; align-items: center; gap: 17px; padding: 9px 12px;
+      background: white; border: 1px solid var(--line); border-radius: 28px;
+    }
+    .quantity button {
+      border: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--sage); color: var(--green); font-size: 18px; cursor: pointer;
+    }
+    .btn {
+      border: 0; background: var(--green); color: white; padding: 14px 21px;
+      border-radius: 28px; font-weight: 800; cursor: pointer; text-decoration: none;
+    }
+    .section-title { font: 700 30px 'Playfair Display', serif; margin: 0 0 18px; }
+    .notes {
+      background: var(--sage); padding: 28px; border-radius: 20px; margin-bottom: 55px;
+    }
+    .notes p { color: var(--muted); line-height: 1.8; margin-bottom: 0; }
+    footer { background: var(--ink); color: white; padding: 25px 0; font-size: 12px; }
+    footer p { color: #bdc9bf; margin: 8px 0 0; }
+    @media (max-width: 700px) {
+      .detail { grid-template-columns: 1fr; gap: 25px; padding-top: 20px; }
+      .photo { height: 290px; }
+      nav { min-height: 68px; }
+      .brand { font-size: 16px; }
+    }
+  </style>
+ </head>
+ <body>
+  <div class="wrap">
+   <nav>
+    <a class="brand" href="index.html">
+     <span class="mark">
+      ✳
+     </span>
+     KANTINKU
+     <span style="color:var(--orange)">
+      .
+     </span>
+    </a>
+    <a class="back" href="index.html#menu">
+     &larr; Kembali ke menu
+    </a>
+   </nav>
+   <main>
+    <section class="detail" id="detail">
+     <img alt="Foto menu" class="photo" id="photo" src=""/>
+     <div>
+      <span class="tag" id="category">
+       MENU
+      </span>
+      <h1 id="name"></h1>
+      <p class="description" id="description">
+      </p>
+      <div class="price" id="price">
+      </div>
+      <div class="info">
+       <div class="info-box">
+        <span>
+         Kategori
+        </span>
+        <strong id="categoryInfo">
+        </strong>
+       </div>
+       <div class="info-box">
+        <span>
+         Cocok untuk
+        </span>
+        <strong id="occasion">
+        </strong>
+       </div>
+      </div>
+      <p class="description" id="extra">
+      </p>
+      <div class="order">
+       <div aria-label="Jumlah pesanan" class="quantity">
+        <button aria-label="Kurangi jumlah" id="minus" type="button">
+         &minus;
+        </button>
+        <strong id="qty">
+         1
+        </strong>
+        <button aria-label="Tambah jumlah" id="plus" type="button">
+         +
+        </button>
+       </div>
+       <button class="btn" id="addBtn" type="button">
+        Tambah ke pesanan &nearrow;
+       </button>
+      </div>
+     </div>
+    </section>
+    <section class="notes">
+     <h2 class="section-title">
+      Catatan pemesanan
+     </h2>
+     <p>
+      Harga dan deskripsi pada halaman ini merupakan informasi menu untuk project Kantinku. Untuk ketersediaan menu, pilihan tingkat pedas, atau permintaan khusus, silakan konfirmasi langsung kepada tenant kantin.
+     </p>
+    </section>
+   </main>
+  </div>
+  <footer>
+   <div class="wrap">
+    <strong>
+     KANTINKU.
+    </strong>
+    <p>
+     Temukan rasa favoritmu dan buat waktu istirahat di kampus lebih menyenangkan.
+    </p>
+   </div>
+  </footer>
+  <script>
+   // Data menu diselaraskan dengan daftar menu di index.html.
+const menus = {
+  1: {
+    name: "Nasi Ayam Sambal",
+    category: "Makanan",
+    price: 20000,
+    description: "Nasi hangat dengan ayam gurih dan sambal pilihan. Menu mengenyangkan untuk menemani aktivitas kuliah.",
+    extra: "Saran: nikmati saat makan siang. Jika memiliki pilihan sambal tertentu, tanyakan ketersediaannya kepada penjual.",
+    occasion: "Makan siang",
+    image: "https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/b31f446f-d365-4052-88f6-28e557107070_Go-Biz_20260411_222817.jpeg"
+  },
+  2: {
+    name: "Rice Bowl Teriyaki",
+    category: "Makanan",
+    price: 18000,
+    description: "Rice bowl dengan ayam teriyaki bersaus manis dan gurih, praktis dinikmati di sela jadwal kuliah",
+    extra: "Pilihan yang cocok untuk kamu yang menyukai hidangan nasi dengan rasa gurih-manis.",
+    occasion: "Makan siang",
+    image: "https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/chicken_teriyaki_don.jpg"
+  },
+  3: {
+    name: "Es Kopi Susu",
+    category: "Minuman",
+    price: 10000,
+    description: "Minuman kopi dengan campuran susu yang creamy, cocok menjadi teman saat belajar atau mengerjakan tugas",
+    extra: "Sajikan dingin untuk pengalaman minum yang lebih menyegarkan. Kandungan kopi dapat mengandung kafein",
+    occasion: "Teman belajar",
+    image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1000&q=85"
+  },
+  4: {
+    name: "Pisang Coklat",
+    category: "Camilan",
+    price: 8000,
+    description: "Camilan pisang dengan cokelat lumer dan tekstur renyah, pas untuk mengisi jeda di antara kelas",
+    extra: "Camilan praktis untuk dinikmati saat istirahat atau bersama teman",
+    occasion: "Waktu istirahat",
+    image: "https://nutrinusa.id/images/makanan/pisang-coklat.webp"
+  },
+  5: {
+    name: "Fresh Mango Juice",
+    category: "Minuman",
+    price: 12000,
+    description: "Jus mangga dengan cita rasa buah yang manis dan segar, cocok untuk menemani waktu istirahat",
+    extra: "Jika kamu memiliki preferensi tingkat manis atau tambahan es, tanyakan langsung kepada tenant",
+    occasion: "Penyegar",
+    image: "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=1000&q=85"
+  },
+  6: {
+    name: "Mie Pedas",
+    category: "Makanan",
+    price: 13000,
+    description: "Mie berbumbu dengan pilihan tingkat kepedasan, untuk kamu yang ingin menu bercita rasa pedas",
+    extra: "Pastikan memilih tingkat pedas sesuai selera dan tanyakan pilihan level yang tersedia kepada penjual",
+    occasion: "Makan santai",
+    image: "https://assets.ladiestory.id/gallery/16460278901448338666-mie-pedas.jpg"
+  }
+};
+
+const money = (amount) => "Rp" + amount.toLocaleString("id-ID");
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id") || "1";
+const menu = menus[id];
+let quantity = 1;
+
+if (menu) {
+  document.title = `${menu.name} | KANTINKU`;
+  document.getElementById("photo").src = menu.image;
+  document.getElementById("photo").alt = menu.name;
+  document.getElementById("category").textContent = menu.category;
+  document.getElementById("categoryInfo").textContent = menu.category;
+  document.getElementById("name").textContent = menu.name;
+  document.getElementById("description").textContent = menu.description;
+  document.getElementById("price").textContent = money(menu.price);
+  document.getElementById("occasion").textContent = menu.occasion;
+  document.getElementById("extra").textContent = menu.extra;
+} else {
+  document.getElementById("name").textContent = "Menu tidak ditemukan";
+  document.getElementById("description").textContent =
+    "Menu yang kamu cari belum tersedia. Silakan kembali ke halaman menu Kantinku.";
+  document.getElementById("price").textContent = "";
+  document.getElementById("category").textContent = "Tidak tersedia";
+  document.getElementById("categoryInfo").textContent = "-";
+  document.getElementById("occasion").textContent = "-";
+  document.getElementById("extra").textContent = "";
+  document.getElementById("photo").style.display = "none";
+  document.getElementById("addBtn").disabled = true;
+}
+
+function updateQty() {
+  document.getElementById("qty").textContent = quantity;
+}
+
+document.getElementById("minus").addEventListener("click", () => {
+  if (quantity > 1) quantity--;
+  updateQty();
+});
+
+document.getElementById("plus").addEventListener("click", () => {
+  quantity++;
+  updateQty();
+});
+
+document.getElementById("addBtn").addEventListener("click", () => {
+  if (!menu) return;
+
+  // Simpan pilihan agar dapat dibaca kembali dari halaman utama.
+  let cart = {};
+
+  try {
+    cart = JSON.parse(localStorage.getItem("kantinkuCart") || "{}");
+  } catch (error) {
+    cart = {};
+  }
+
+  cart[id] = (Number(cart[id]) || 0) + quantity;
+  localStorage.setItem("kantinkuCart", JSON.stringify(cart));
+
+  alert(
+    `${quantity} ${menu.name} ditambahkan ke ringkasan pesanan. ` +
+    "Silakan konfirmasi ke tenant kantin."
+  );
+});
+  </script>
+ </body>
+</html>
